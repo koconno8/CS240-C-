@@ -1,0 +1,25 @@
+test: clean clear main
+#./waitlist
+ 
+clear:
+	clear 
+
+main: main.o PrereqCheck.o ScheduleCheck.o Waitlist.o
+	g++ -Wall -Wextra -g main.o PrereqCheck.o ScheduleCheck.o Waitlist.o -o waitlist
+
+main.o: main.cpp
+	g++ -g -Wall -Wextra -c main.cpp
+
+Waitlist.o: Waitlist.cpp
+	g++ -g -Wall -Wextra -c Waitlist.cpp
+
+PrereqCheck.o: PrereqCheck.cpp
+	g++ -g -Wall -Wextra -c PrereqCheck.cpp
+
+ScheduleCheck.o: ScheduleCheck.cpp
+	g++ -g -Wall -Wextra -c ScheduleCheck.cpp
+
+clean:
+	rm -f *.o waitlist
+
+#2023Fall prerequisites.txt schedules.txt enroll.txt
